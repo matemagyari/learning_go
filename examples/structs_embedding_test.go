@@ -37,6 +37,12 @@ func (e computerEngineer) greet() string {
 	return fmt.Sprintf("computerEngineer %s", e.name)
 }
 
+func runGreets(persons []person) {
+	for _, p := range persons {
+		p.greet()
+	}
+}
+
 func TestEmbeddedStructures(t *testing.T) {
 	fmt.Println(engineer{id: 0, name: "Joe"}.greet())//engineer Joe
 
@@ -53,4 +59,6 @@ func TestEmbeddedStructures(t *testing.T) {
 	//structures are mutable
 	ce.language = "Cobol"
 	fmt.Println(ce.language) // Cobol
+
+	runGreets([]person{ce, ee})
 }
